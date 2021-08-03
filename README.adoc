@@ -1,0 +1,68 @@
+= Professionelle Softwareentwicklung: Übung 7
+:icons: font
+:icon-set: fa
+:source-highlighter: rouge
+:experimental:
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+:stem: latexmath
+endif::[]
+
+== Parrot Kata
+
+Heute schauen wir uns den Parrot Messaging Service an. Dort gibt es eine Reihe von Papageien mit verschiedenen Eigenschaften, die zum Versand von Sprachnachrichten eingesetzt werden können.
+
+Die Papageien in diesem Projekt sind noch nicht dafür gedacht, dass man ihnen Sprachnachrichten vorsprechen kann.
+Vielmehr haben sie andere Eigenschaften (können Kokosnüsse tragen, ...).
+Wir wollen nun im ersten Schritt dieses Projekt brauchbar machen, indem wir es erst einmal gründlich aufräumen.
+Dafür sind genügend Test vorhanden, die nahezu 100 % der Logik der Klasse `Parrot` abdecken.
+Ändern Sie immer ein Stück Code und führen Sie dann alle Tests wieder aus!
+Ziel soll es sein, dass Sie das Projekt Stück für Stück in eine brauchbare Form überführen und sich dabei immer an die Tests halten.
+
+Anschließend sollen die Papageien, wenn sie erzeugt werden, entweder zufällige Texte aufsagen, wenn man ihnen nichts vorgesprochen hat ("Polly will 'nen Keks!"), oder eben genau die eine Sprachnachricht wiedergeben, wenn sie mit einer Nachricht (String) initialisiert wurden.
+Das heißt wir brauchen zwei Konstruktoren für unsere Papageien.
+
+=== Aufgabenstellung
+
+IMPORTANT: Stellen Sie bei jedem Schritt sicher, dass die Tests durchlaufen.
+Wenn sie es nicht tun, beheben sie zunächst (sinnvoll) die Tests, bevor Sie weitermachen.
+
+* Die Klasse `Parrot` wurde nicht klug implementiert.
+** Schreiben Sie diese Klasse mithilfe der vorliegenden Tests um und extrahieren Sie sinnvolle Klassen wie Sie es schon vor einigen Wochen gesehen haben.
+** Schreiben Sie die Tests so um, dass sie AssertJ verwenden.
++
+TIP: Schreiben Sie in Ihrer IDE `assertThat` und importieren Sie die von Ihrer IDE vorgeschlagene Klasse.
+Von da aus bekommen Sie dann wieder Code Completion Ihrer IDE, womit sich leichter mit AssertJ arbeiten lässt.
+
+* Nun sollen die Papageien mit einem `List<String> messages` initialisiert werden können.
+Diese Liste enthält entweder die vorgegebene Sprachnachricht oder eine Auswahl von möglichen Rufen, die Sie fest ins Programm hineincoden können.
+Der Inhalt der Nachrichten ist nicht wirklich wichtig für das Programm, es geht hier nur um das Verständnis.
+* Entwickeln Sie eine Methode `speak()` für die Papageien, sodass sie ihre Nachricht aufsagen.
++
+NOTE: Der Einfachheit halber lassen wir die `speak()`-Methode den String, den der Papagei spricht, von der Methode returnen.
+
+* Entwickeln Sie Tests für die neuen Funktionalitäten.
+* Die Papageien sollen nun mehr als nur Sprachnachrichten, sondern auch Postkarten übermitteln können.
+Erstellen Sie hierzu eine Klasse `Postkarte`.
+Diese soll sowohl einen Text, als auch eine URL für ein Bild enthalten.
+Beides können sie einfach als String in der Klasse modellieren.
+Wie die Postkarte vom Parrot vorgelesen wird (z.B. nur der Text), bleibt Ihnen überlassen.
++
+TIP: Denken Sie dabei an Dependency Inversion.
+Damit das funktioniert, ersetzen Sie zunächst die Verwendung von `String` für unsere Sprachnachrichten mit einer eigenen `Sprachnachricht` Klasse.
+
+* Falls Sie es noch nicht gemacht haben, verbessern Sie die Tests.
+* Strukturieren Sie Ihre Tests nach den Klassen die Sie Testen (jetzt sollten es mehr sein als zuvor).
+* Schreiben Sie Testnamen mit `@DisplayName`.
+* Nutzen Sie AssertJ.
+* Wenden Sie noch andere Verbesserungen an, falls Ihnen welche einfallen.
+
+== Tool der Woche: Clipboard Manager
+
+Manchmal möchte man mehrere Sachen in seine Zwischenablage kopieren oder etwas, was man einige Stunden vorher mal in der Zwischenablage hatte, wieder abrufen. Der Link, den ein:e Kommiliton:in im Discord geteilt hat, einen Zugangscode zu einer Among Us Runde etc. Alles Dinge, die wir wiederverwenden und auch schnell wieder abrufbar machen können.
+
+Ich bin daher riesen Fan von Clipboard Managern. Es gibt viele verschiedene Manager für die einzelnen Betriebssysteme, beispielsweise Klipper (falls Sie KDE verwenden), ein Alfred-Plugin (unter macOS), ... Für Windows kenne ich leider keinen, denn das Betriebssystem nutze ich nicht. Aber suchen Sie einfach mal einen Manager für Ihr Betriebssystem bzw. Ihre grafische Oberfläche! Es spart mir persönlich sehr viel Zeit jeden Tag.
